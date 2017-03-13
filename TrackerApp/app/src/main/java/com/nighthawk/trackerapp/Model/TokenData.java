@@ -9,7 +9,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Michael on 13/3/17.
@@ -17,11 +19,8 @@ import java.util.List;
 
 public class TokenData {
     private static TokenData instance = new TokenData();
-    private ArrayList<String> tokens = new ArrayList<>();
+    private Set<String> tokens = new HashSet<>();
     private SingletonStorage storage = SingletonStorage.getInstance();
-    DatabaseReference mRoofRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference accountType = mRoofRef.child(storage.getAccountID());
-    DatabaseReference deviceGroup = mRoofRef.child("Families");
 
     private TokenData(){}
 
@@ -33,50 +32,9 @@ public class TokenData {
         tokens.add(token);
     }
 
-    public ArrayList<String> getTokens(){
+    public Set<String> getTokens(){
         return tokens;
     }
 
-    public void getAllTokenForNotification(){
-        final List<String> familylist = new ArrayList<>();
 
-        accountType.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    String key = ds.getKey();
-                    if(!key.equals("Type")){
-                        familylist.add(key);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-        for(String item : familylist){
-            DatabaseReference tmp = deviceGroup.child(item);
-            tmp.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for(DataSnapshot ds : dataSnapshot.getChildren()){
-                        String key = ds.getKey();
-                        if(!key.equals("size")){
-                            String value = ds.getValue().toString();
-                            tokens.add(value);
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-    }
 }

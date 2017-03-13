@@ -5,6 +5,9 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -20,13 +23,20 @@ public class HTTPRequest extends AsyncTask<String, Void, Void>{
 
     @Override
     protected Void doInBackground(String... data){
-        String dataToBeSend = data[0].toString();
-        String tokenToBeSend = data[1];
         OkHttpClient client = new OkHttpClient();
-        RequestBody body = new FormBody.Builder()
-                .add("DATA",dataToBeSend)
-                .add("Tokens",tokenToBeSend)
-                .build();
+        String dataToBeSend = data[0].toString();
+        String tokens = data[1].toString();
+        List<String> tokenToBeSend = new ArrayList<>();
+        for(String token : tokens.split(",")){
+            tokenToBeSend.add(token);
+        }
+        FormBody.Builder bodyBuilder = new FormBody.Builder()
+                .add("DATA",dataToBeSend);
+
+        for(String token : tokenToBeSend){
+            bodyBuilder.add("Token[]",token);
+        }
+        RequestBody body = bodyBuilder.build();
         Request request = new Request.Builder()
                 .url("http://172.21.148.167/TrackerApplication/push_notification.php")
                 .post(body)
@@ -40,4 +50,5 @@ public class HTTPRequest extends AsyncTask<String, Void, Void>{
         }
         return null;
     }
+
 }

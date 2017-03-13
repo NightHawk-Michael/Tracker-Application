@@ -10,14 +10,33 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/ReminderListView"
+                android:layout_width="match_parent"
+                android:layout_height="388dp"
+                android:layout_marginTop="60dp" />
+        </LinearLayout>
+    </ScrollView>
 
     <ImageButton
+        android:id="@+id/ibAddReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/addbutton"
-        android:id="@+id/ibAddReminder"
+        android:layout_gravity="bottom|right"
         android:background="@android:color/transparent"
-        android:layout_gravity="bottom|right" />
+        app:srcCompat="@drawable/addbutton" />
 
 </FrameLayout>

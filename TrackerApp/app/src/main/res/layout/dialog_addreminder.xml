@@ -14,14 +14,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etDescription"
-        android:hint="Description" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/etQuantity"
@@ -47,7 +39,7 @@
         android:id="@+id/checkBoxAfternoon" />
 
     <CheckBox
-        android:text="Dinner"
+        android:text="Night"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBoxDinner" />
@@ -60,7 +52,7 @@
         android:textSize="18sp"/>
 
     <CheckBox
-        android:text="CheckBox"
+        android:text="Before"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBoxBefore" />

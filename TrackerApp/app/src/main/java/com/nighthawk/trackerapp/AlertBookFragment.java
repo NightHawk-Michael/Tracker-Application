@@ -191,7 +191,7 @@ public class AlertBookFragment extends Fragment {
     public void addToFamily(View view){
         final String family = getSpinnerSelectedItem();
         final DatabaseReference familyGroup = deviceGroup.child("Families").child(family).child("Group");
-        familyGroup.addListenerForSingleValueEvent(new ValueEventListener() {
+        familyGroup.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 long size = dataSnapshot.getChildrenCount() - 1; //Account for the "Size" as an item in the group

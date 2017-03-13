@@ -63,7 +63,14 @@ public class RegisterFragment extends AppCompatActivity implements AdapterView.O
 
     public Boolean register(String id, String password){
         if(id.equals("")||password.equals("")){
-            CharSequence error = "Email or Password cannot be empty!";
+            CharSequence error = "IC or Password cannot be empty!";
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context, error, Toast.LENGTH_SHORT);
+            toast.show();
+            return Boolean.FALSE;
+        }
+        else if(id.length() < 6 || password.length() < 6){
+            CharSequence error = "IC or Password must be more than 6 Characters!";
             Context context = getApplicationContext();
             Toast toast = Toast.makeText(context, error, Toast.LENGTH_SHORT);
             toast.show();
