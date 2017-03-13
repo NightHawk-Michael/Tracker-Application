@@ -96,7 +96,7 @@ public class LoginFragment extends AppCompatActivity {
                         FirebaseMessaging.getInstance().subscribeToTopic("SOS");
                         String token = FirebaseInstanceId.getInstance().getToken();
                         String idInput = id.substring(0,id.indexOf('@'));
-                        storage.updateAccountID(idInput);
+                        storage.updateAccountID(idInput.toLowerCase());
                         storage.updateTokenID(token);
                         mainActivityIntent.putExtra("IC",idInput);
                         startActivity(mainActivityIntent);

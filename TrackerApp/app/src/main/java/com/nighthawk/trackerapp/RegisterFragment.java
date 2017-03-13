@@ -108,7 +108,7 @@ public class RegisterFragment extends AppCompatActivity implements AdapterView.O
                     // Prepare to write to database (ic : account type)
                     String selection = spinner.getSelectedItem().toString();
                     HashMap<String,String> database = new HashMap<String, String>();
-                    database.put(ic,selection);
+                    database.put(ic.toLowerCase(),selection);
                     writeItemToDatabase(accountType,database);
 
                     CharSequence success = "Register Successful";
