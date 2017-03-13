@@ -1,4 +1,6 @@
 package com.nighthawk.trackerapp;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.nighthawk.trackerapp.Helper.LoginInfo;
 import com.nighthawk.trackerapp.Model.LoginModel;
 import com.nighthawk.trackerapp.Model.SingletonStorage;
@@ -91,9 +93,12 @@ public class LoginFragment extends AppCompatActivity {
                         CharSequence success = "Suceess Verification";
                         Toast toast = Toast.makeText(context, success, Toast.LENGTH_SHORT);
                         toast.show();
+                        FirebaseMessaging.getInstance().subscribeToTopic("SOS");
+                        String token = FirebaseInstanceId.getInstance().getToken();
                         String idInput = id.substring(0,id.indexOf('@'));
+                        storage.updateAccountID(idInput);
+                        storage.updateTokenID(token);
                         mainActivityIntent.putExtra("IC",idInput);
-                        storage.updateAccountID(id);
                         startActivity(mainActivityIntent);
                     }
                     else{

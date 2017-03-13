@@ -13,13 +13,17 @@ import android.widget.ImageButton;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.nighthawk.trackerapp.Helper.HTTPRequest;
+import com.nighthawk.trackerapp.Model.TokenData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-
+    private TokenData tokenData = TokenData.getInstance();
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -40,9 +44,13 @@ public class HomeFragment extends Fragment {
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HTTPRequest httpRequest = new HTTPRequest();
-                httpRequest.execute("HELP!!!");
-
+                tokenData.getAllTokenForNotification();
+                String[] message = new String[]{"HELP!!!"};
+                List<String[]> data = new ArrayList<String[]>();
+                data.add(message);
+//                data.add((String[]) tokenData.getTokens().toArray());
+//                HTTPRequest httpRequest = new HTTPRequest();
+//                httpRequest.execute("HELP!!!");
             }
         });
     }

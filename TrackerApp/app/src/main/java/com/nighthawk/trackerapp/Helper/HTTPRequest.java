@@ -21,9 +21,11 @@ public class HTTPRequest extends AsyncTask<String, Void, Void>{
     @Override
     protected Void doInBackground(String... data){
         String dataToBeSend = data[0].toString();
+        String tokenToBeSend = data[1];
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
                 .add("DATA",dataToBeSend)
+                .add("Tokens",tokenToBeSend)
                 .build();
         Request request = new Request.Builder()
                 .url("http://172.21.148.167/TrackerApplication/push_notification.php")

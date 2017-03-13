@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         TextView nav_header_ic = (TextView)navHeaderView.findViewById(R.id.username);
         nav_header_ic.setText(ic);
         final TextView nav_header_accountType = (TextView)navHeaderView.findViewById(R.id.accountType);
-        accountType.child(ic).addValueEventListener(new ValueEventListener() {
+        accountType.child(ic).child("Type").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String aType = dataSnapshot.getValue(String.class);
@@ -175,4 +175,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

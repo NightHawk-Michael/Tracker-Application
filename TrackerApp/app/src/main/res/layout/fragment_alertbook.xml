@@ -3,17 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="a.elderwatch.AlertBookFragment">
+    tools:context="com.nighthawk.trackerapp.AlertBookFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:text="Create New Alert Book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvCreateGroup"
-        android:layout_gravity="right"
-        android:layout_marginTop="65dp"
-        android:clickable="true"
-        android:textSize="20sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/spinner2"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/spinner2"
+            android:text="Select A Family Group"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/CreateFamily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="0dp"
+            android:text="Create New Family Group" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/memberList"
+                    android:layout_width="match_parent"
+                    android:layout_height="273dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/registerToFamily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Register To A Family" />
+
+    </RelativeLayout>
+
 </FrameLayout>

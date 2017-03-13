@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 
 
@@ -35,12 +36,12 @@ public class RegisterFragment extends AppCompatActivity implements AdapterView.O
         super.onCreate(saveInstanceBundle);
         setContentView(R.layout.fragment_register);
         this.spinner = (Spinner) findViewById(R.id.spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
+        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.role_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
+        // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         // Inflate the layout for this fragment
         spinner.setOnItemSelectedListener(this);
@@ -79,7 +80,7 @@ public class RegisterFragment extends AppCompatActivity implements AdapterView.O
         for(String key: hashMap.keySet()){
             String id = key;
             String value = hashMap.get(key);
-            parent.child(id).setValue(value);
+            parent.child(id).child("Type").setValue(value);
         }
     }
 
