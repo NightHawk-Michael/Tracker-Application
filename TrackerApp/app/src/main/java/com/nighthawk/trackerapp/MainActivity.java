@@ -1,6 +1,7 @@
 package com.nighthawk.trackerapp;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -147,13 +149,14 @@ public class MainActivity extends AppCompatActivity
 //            dialog.show();
 //            mYes.setOnClickListener(new View.OnClickListener(){
 //               @Override
-//                       public void onClick (View view){
-//                   LoginFragment fragment = new LoginFragment();
-//                   android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                           getSupportFragmentManager().beginTransaction();
-//                   fragmentTransaction.replace(R.id.fragment_container, fragment);
-//                   fragmentTransaction.commit();
-//                   dialog.cancel();
+//                   public void onClick (View view){
+////                   LoginFragment fragment = new LoginFragment();
+////                   android.support.v4.app.FragmentTransaction fragmentTransaction =
+////                           getSupportFragmentManager().beginTransaction();
+////                   fragmentTransaction.replace(R.id.fragment_container, fragment);
+////                   fragmentTransaction.commit();
+////                   dialog.cancel();
+//
 //                }
 //            });
 //        } else if(id == R.id.nav_register){

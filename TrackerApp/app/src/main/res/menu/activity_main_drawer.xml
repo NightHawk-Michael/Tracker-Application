@@ -14,18 +14,18 @@
             android:id="@+id/nav_alertbook"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Alertbook" />
-        <item
-            android:id="@+id/nav_signout"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Sign Out" />
-        <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Login" />
-        <item
-            android:id="@+id/nav_register"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Register" />
+        <!--<item-->
+            <!--android:id="@+id/nav_signout"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Sign Out" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_login"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Login" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_register"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Register" />-->
     </group>
 
 </menu>

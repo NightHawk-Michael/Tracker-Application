@@ -57,7 +57,6 @@ public class AlertBookFragment extends Fragment {
             }
         });
         Button registerFamily = (Button) view.findViewById(R.id.registerToFamily);
-
         registerFamily.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,8 +120,10 @@ public class AlertBookFragment extends Fragment {
             }
         }
         Log.d("LISTVIEWCHECK",Integer.toString(list.size()));
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,list);
-        listView.setAdapter(adapter);
+        if(isAdded()) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list);
+            listView.setAdapter(adapter);
+        }
     }
 
     public void updateSpinnerData(DataSnapshot dataSnapshot, List<String> list){
@@ -132,9 +133,11 @@ public class AlertBookFragment extends Fragment {
             list.add(familyName);
         }
         Log.d("CHECK", (Integer.toString(list.size())));
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        if(isAdded()) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+        }
     }
 
     @Override
