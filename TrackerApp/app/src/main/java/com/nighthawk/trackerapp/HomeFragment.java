@@ -84,6 +84,7 @@ public class HomeFragment extends Fragment {
                         familylist.add(key);
                     }
                 }
+                tokenData.clearTokens();
                 getAllTokenForNotification(familylist);
             }
 

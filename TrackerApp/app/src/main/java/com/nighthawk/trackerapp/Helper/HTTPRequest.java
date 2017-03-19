@@ -18,7 +18,6 @@ import okhttp3.Response;
 /**
  * Created by Michael on 12/3/17.
  */
-
 public class HTTPRequest extends AsyncTask<String, Void, Void>{
 
     @Override
@@ -52,3 +51,4 @@ public class HTTPRequest extends AsyncTask<String, Void, Void>{
     }
 
 }
+

@@ -32,9 +32,16 @@ public class TokenData {
         tokens.add(token);
     }
 
+    public void removeToken(String token){
+        tokens.remove(token);
+    }
+
     public Set<String> getTokens(){
         return tokens;
     }
 
+    public void clearTokens(){
+        tokens.clear();
+    }
 
 }
